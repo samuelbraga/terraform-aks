@@ -1,12 +1,13 @@
 provider "azuread" {
-  version = "=0.7.0"
+    
 }
 
 provider "azurerm" {
-  version = "~>2.0"
-  features {}
+    version = "~>2.0"
+    skip_provider_registration = true
+    features {}
 }
 
 terraform {
-  backend "azurerm" {}
+    backend "azurerm" {}
 }

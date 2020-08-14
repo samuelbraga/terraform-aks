@@ -16,6 +16,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
         name            = var.agent_name
         node_count      = var.agent_count
         vm_size         = var.agent_vm_size
+        vnet_subnet_id  = var.subnet_id
+        os_disk_size_gb = var.os_disk_size_gb 
     }
 
     service_principal {

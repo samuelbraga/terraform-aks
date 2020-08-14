@@ -15,7 +15,6 @@ resource "azuread_application" "application_identity" {
 
 resource "azuread_service_principal" "service_principal" {
   application_id               = azuread_application.application_identity.application_id
-  app_role_assignment_required = false
 }
 
 resource "azuread_service_principal_password" "service_principal_password" {

@@ -9,9 +9,16 @@ log_analytics_workspace_name     =
 log_analytics_workspace_location =
 log_analytics_workspace_sku      =
 
-cluster_name   =
-dns_prefix     =
-admin_username =
-agent_name     =
-agent_count    =
-agent_vm_size  =
+vnet_name          =
+vnet_cidr_blocks   =
+subnet_name        =
+subnet_cidr_blocks =
+nsg_name           =
+
+cluster_name    =
+dns_prefix      =
+admin_username  =
+agent_name      =
+agent_count     =
+agent_vm_size   =
+os_disk_size_gb =

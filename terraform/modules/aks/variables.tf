@@ -28,6 +28,11 @@ variable "agent_vm_size" {
   description = "Tamanho da VM utilizada como agente do cluster AKS" 
 }
 
+variable "os_disk_size_gb" {
+  default = ""
+  description = "Tamanho dos discos de armazenamento dos nós do cluster"
+}
+
 variable "resource_group_name" {
   default = ""
   description = "Nome do resource group onde será criado o log workspace"
@@ -56,4 +61,9 @@ variable "client_secret" {
 variable "log_analytics_workspace_id" {
   default = ""
   description = "Variável para interação do AKS com o log workspace"
+}
+
+variable "subnet_id" {
+  default = ""
+  description = "ID da subnet onde será provisionado o cluster AKS"
 }
