@@ -44,13 +44,16 @@ module "networking" {
 module "aks" {
     source   = "./modules/aks"
 
-    cluster_name    = var.cluster_name
-    dns_prefix      = var.dns_prefix
-    admin_username  = var.admin_username
-    agent_name      = var.agent_name
-    agent_count     = var.agent_count
-    agent_vm_size   = var.agent_vm_size
-    os_disk_size_gb = var.os_disk_size_gb
+    cluster_name       = var.cluster_name
+    dns_prefix         = var.dns_prefix
+    admin_username     = var.admin_username
+    agent_name         = var.agent_name
+    agent_count        = var.agent_count
+    agent_vm_size      = var.agent_vm_size
+    os_disk_size_gb    = var.os_disk_size_gb
+    service_cidr       = var.service_cidr
+    dns_service_ip     = var.dns_service_ip
+    docker_bridge_cidr = var.docker_bridge_cidr
 
     resource_group_name     = module.resource_group.resource_group_name
     resource_group_location = module.resource_group.resource_group_location

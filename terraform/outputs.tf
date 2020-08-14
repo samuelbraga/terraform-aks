@@ -1,3 +1,3 @@
 output "aks_id" {
-  value = module.aks.id
+    value = module.aks.id
 }

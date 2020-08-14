@@ -33,8 +33,10 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     }
 
     network_profile {
-      load_balancer_sku = "Standard"
-      network_plugin = "kubenet"
+        network_plugin     = "azure"
+        dns_service_ip     = var.dns_service_ip
+        docker_bridge_cidr = var.docker_bridge_cidr
+        service_cidr       = var.service_cidr
     }
 
     tags = {
