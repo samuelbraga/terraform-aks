@@ -1,0 +1,17 @@
+resource_group_name     = 
+resource_group_location =
+
+application_identity_name  =
+application_identity_type  =
+service_principal_end_date =
+
+log_analytics_workspace_name     =
+log_analytics_workspace_location =
+log_analytics_workspace_sku      =
+
+cluster_name   =
+dns_prefix     =
+admin_username =
+agent_name     =
+agent_count    =
+agent_vm_size  =
