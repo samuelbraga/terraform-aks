@@ -9,7 +9,7 @@ resource "null_resource" "helm_init" {
 
   provisioner "local-exec" {
     command = "helm init"
-    environment {
+    environment = {
       KUBECONFIG = "/kube/aks.kubeconfig"
     }
   }
