@@ -67,3 +67,9 @@ module "aks" {
     
     subnet_id = module.networking.subnet_id
 }
+
+module "helm_init" {
+    source = "./modules/helm"
+
+    kube_config = module.aks.kube_config
+}
