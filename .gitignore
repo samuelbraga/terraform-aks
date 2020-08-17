@@ -39,3 +39,6 @@ backend.config
 id_rsa
 id_rsa.pub
 id_rsa.pem
+
+*.tgz
+**/charts/*

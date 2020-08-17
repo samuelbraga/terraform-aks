@@ -25,3 +25,5 @@ os_disk_size_gb    =
 service_cidr       =
 dns_service_ip     =
 docker_bridge_cidr =
+chart_name         =
+chart_version      =

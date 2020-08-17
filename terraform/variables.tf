@@ -118,3 +118,13 @@ variable "nsg_name" {
     default = ""
     description = "Nome da network security group que será utilizada pela subnet"
 }
+
+variable "chart_name" {
+    default = ""
+    description = "Nome do chart que será utilizado para ingress"
+}
+
+variable "chart_version" {
+    default = ""
+    description = "Versao do chart que será utilizado para ingress"
+}

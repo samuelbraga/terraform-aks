@@ -68,8 +68,17 @@ module "aks" {
     subnet_id = module.networking.subnet_id
 }
 
-module "helm_init" {
-    source = "./modules/helm"
+module "ingress" {
+    source = "./modules/ingress"
 
-    kube_config = module.aks.kube_config
+    client_key             = module.aks.client_key
+    client_certificate     = module.aks.client_certificate
+    cluster_ca_certificate = module.aks.cluster_ca_certificate
+    cluster_username       = module.aks.cluster_username
+    cluster_password       = module.aks.cluster_password
+    kube_config            = module.aks.kube_config
+    host                   = module.aks.host
+
+    chart_name    = var.chart_name
+    chart_version = var.chart_version
 }
