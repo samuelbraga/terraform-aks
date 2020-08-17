@@ -12,13 +12,13 @@ provider "helm" {
 
 resource "null_resource" "get_chart" {
     provisioner "local-exec" {
-        command = "rm ${path.module}/charts/${var.chart_name}-${var.chart_version}.tgz && wget https://kubernetes-charts.storage.googleapis.com/${var.chart_name}-${var.chart_version}.tgz -P ${path.module}/charts"
+        command = "rm -r ${path.module}/charts/${var.chart_name}-${var.chart_version}.tgz && wget https://kubernetes-charts.storage.googleapis.com/${var.chart_name}-${var.chart_version}.tgz -P ${path.module}/charts"
     }
 }
 
 resource "null_resource" "descompact_chart" {
     provisioner "local-exec" {
-        command = "tar -C ${path.module}/charts -zxvf ${path.module}/charts/${var.chart_name}-${var.chart_version}.tgz"
+        command = "rm -f ${path.module}/charts/${var.chart_name} && tar -C ${path.module}/charts -zxvf ${path.module}/charts/${var.chart_name}-${var.chart_version}.tgz"
     }
 
     depends_on = [null_resource.get_chart]
