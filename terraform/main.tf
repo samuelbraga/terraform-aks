@@ -71,6 +71,9 @@ module "aks" {
 module "ingress" {
     source = "./modules/ingress"
 
+    cluster_name        = var.cluster_name
+    resource_group_name = var.resource_group_name
+
     client_key             = module.aks.client_key
     client_certificate     = module.aks.client_certificate
     cluster_ca_certificate = module.aks.cluster_ca_certificate

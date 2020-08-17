@@ -1,3 +1,13 @@
+variable "cluster_name" {
+    default = ""
+    description = "Nome do cluster AKS que será criado" 
+}
+
+variable "resource_group_name" {
+    default = ""
+    description = "Nome do resource group onde será criado o log workspace"
+}
+
 variable "client_key" {
     default = ""
     description = "Client key para acesso ai cluster AKS" 
