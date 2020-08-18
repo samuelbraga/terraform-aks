@@ -13,3 +13,7 @@ output "version" {
 output "status" {
     value = module.ingress.status
 }
+
+output "login_server" {
+    value = module.acr.login_server
+}

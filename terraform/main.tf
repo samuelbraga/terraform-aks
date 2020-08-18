@@ -71,8 +71,8 @@ module "aks" {
 module "ingress" {
     source = "./modules/ingress"
 
-    cluster_name        = var.cluster_name
-    resource_group_name = var.resource_group_name
+    cluster_name           = var.cluster_name
+    resource_group_name    = module.resource_group.resource_group_name
 
     client_key             = module.aks.client_key
     client_certificate     = module.aks.client_certificate
@@ -93,14 +93,5 @@ module "acr" {
     resource_group_location = module.resource_group.resource_group_location
 
     acr_name = var.acr_name
-    acr_sku  = var.acr_name
-}
-
-
-module "aks_with_acr" {
-    source = "./modules/aks_with_acr"
-
-    resource_group_name     = module.resource_group.resource_group_name
-    cluster_name            = var.cluster_name
-    acr_name                = var.acr_name
+    acr_sku  = var.acr_sku
 }

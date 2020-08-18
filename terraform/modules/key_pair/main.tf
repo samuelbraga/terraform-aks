@@ -18,7 +18,7 @@ resource "null_resource" "key_chown" {
 
 resource "null_resource" "key_gen" {
     provisioner "local-exec" {
-        command = "rm -f ${path.module}/id_rsa.pub && ssh-keygen -y -f ${path.module}/id_rsa > ${path.module}/id_rsa.pub"
+        command = "echo $(rm ${path.module}/id_rsa.pub) && ssh-keygen -y -f ${path.module}/id_rsa > ${path.module}/id_rsa.pub"
     }
 
     depends_on = [local_file.key_priv]
