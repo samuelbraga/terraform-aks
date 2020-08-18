@@ -27,3 +27,6 @@ dns_service_ip     =
 docker_bridge_cidr =
 chart_name         =
 chart_version      =
+
+acr_name = 
+acr_sku  =

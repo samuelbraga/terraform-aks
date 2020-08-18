@@ -85,3 +85,22 @@ module "ingress" {
     chart_name    = var.chart_name
     chart_version = var.chart_version
 }
+
+module "acr" {
+    source = "./modules/acr"
+
+    resource_group_name     = module.resource_group.resource_group_name
+    resource_group_location = module.resource_group.resource_group_location
+
+    acr_name = var.acr_name
+    acr_sku  = var.acr_name
+}
+
+
+module "aks_with_acr" {
+    source = "./modules/aks_with_acr"
+
+    resource_group_name     = module.resource_group.resource_group_name
+    cluster_name            = var.cluster_name
+    acr_name                = var.acr_name
+}

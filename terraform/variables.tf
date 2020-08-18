@@ -128,3 +128,14 @@ variable "chart_version" {
     default = ""
     description = "Versao do chart que será utilizado para ingress"
 }
+
+# ACR
+variable "acr_name" {
+    default = ""
+    description = "Nome do azure container service"
+}
+
+variable "acr_sku" {
+    default = ""
+    description = "Classe do servico ACR"
+}
