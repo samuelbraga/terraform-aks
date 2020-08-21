@@ -21,4 +21,8 @@ resource "helm_release" "prometheus" {
     cleanup_on_fail  = true
     create_namespace = true
     timeout          = 600
+
+    values = [
+        file("${path.module}/values.yaml")
+    ]
 }

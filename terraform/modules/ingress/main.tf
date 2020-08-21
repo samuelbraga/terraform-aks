@@ -11,7 +11,7 @@ provider "helm" {
 }
 
 resource "helm_release" "ingress" {
-    name             = "nginx-ingress"
+    name             = "nginx"
     repository       = "https://kubernetes-charts.storage.googleapis.com"
     chart            = var.chart_name
     version          = var.chart_version
@@ -20,4 +20,8 @@ resource "helm_release" "ingress" {
     atomic           = true
     cleanup_on_fail  = true
     create_namespace = true
+
+    values = [
+        file("${path.module}/values.yaml")
+    ]
 }
