@@ -119,14 +119,24 @@ variable "nsg_name" {
     description = "Nome da network security group que será utilizada pela subnet"
 }
 
-variable "chart_name" {
+variable "ingres_chart_name" {
     default = ""
     description = "Nome do chart que será utilizado para ingress"
 }
 
-variable "chart_version" {
+variable "ingres_chart_version" {
     default = ""
     description = "Versao do chart que será utilizado para ingress"
+}
+
+variable "prometheus_chart_name" {
+    default = ""
+    description = "Nome do chart que será utilizado para o monitormaento do cluster"
+}
+
+variable "prometheus_chart_version" {
+    default = ""
+    description = "Versao do chart que será utilizado para monitoramento do cluster"
 }
 
 # ACR

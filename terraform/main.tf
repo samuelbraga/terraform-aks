@@ -41,6 +41,16 @@ module "networking" {
     resource_group_location = module.resource_group.resource_group_location
 }
 
+module "acr" {
+    source = "./modules/acr"
+
+    resource_group_name     = module.resource_group.resource_group_name
+    resource_group_location = module.resource_group.resource_group_location
+
+    acr_name = var.acr_name
+    acr_sku  = var.acr_sku
+}
+
 module "aks" {
     source   = "./modules/aks"
 
@@ -82,16 +92,24 @@ module "ingress" {
     kube_config            = module.aks.kube_config
     host                   = module.aks.host
 
-    chart_name    = var.chart_name
-    chart_version = var.chart_version
+    chart_name             = var.ingres_chart_name
+    chart_version          = var.ingres_chart_version
 }
 
-module "acr" {
-    source = "./modules/acr"
+module "prometheus" {
+    source = "./modules/prometheus"
 
-    resource_group_name     = module.resource_group.resource_group_name
-    resource_group_location = module.resource_group.resource_group_location
+    cluster_name           = var.cluster_name
+    resource_group_name    = module.resource_group.resource_group_name
 
-    acr_name = var.acr_name
-    acr_sku  = var.acr_sku
+    client_key             = module.aks.client_key
+    client_certificate     = module.aks.client_certificate
+    cluster_ca_certificate = module.aks.cluster_ca_certificate
+    cluster_username       = module.aks.cluster_username
+    cluster_password       = module.aks.cluster_password
+    kube_config            = module.aks.kube_config
+    host                   = module.aks.host
+
+    chart_name             = var.prometheus_chart_name
+    chart_version          = var.prometheus_chart_version
 }
