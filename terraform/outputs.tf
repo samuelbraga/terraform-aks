@@ -3,27 +3,27 @@ output "aks_id" {
 }
 
 output "ingress_name" {
-    value = module.ingress.name
+    value = module.helm.ingress_name
 }
 
 output "ingress_version" {
-    value = module.ingress.version
+    value = module.helm.ingress_version
 }
 
 output "ingress_status" {
-    value = module.ingress.status
+    value = module.helm.ingress_status
 }
 
 output "prometheus_name" {
-    value = module.prometheus.name
+    value = module.helm.prometheus_name
 }
 
 output "prometheus_version" {
-    value = module.prometheus.version
+    value = module.helm.prometheus_version
 }
 
 output "prometheus_status" {
-    value = module.prometheus.status
+    value = module.helm.prometheus_status
 }
 
 output "login_server" {

@@ -43,12 +43,22 @@ variable "host" {
     description = "Host para acesso ai cluster AKS" 
 }
 
-variable "chart_name" {
+variable "ingress_chart_name" {
     default = ""
-    description = "Nome do chart que será utilizado para o prometheus"
+    description = "Nome do chart que será utilizado para ingress"
 }
 
-variable "chart_version" {
+variable "ingress_chart_version" {
     default = ""
-    description = "Versao do chart que será utilizado para o prometheus"
+    description = "Versao do chart que será utilizado para ingress"
+}
+
+variable "prometheus_chart_name" {
+    default = ""
+    description = "Nome do chart que será utilizado para ingress"
+}
+
+variable "prometheus_chart_version" {
+    default = ""
+    description = "Versao do chart que será utilizado para ingress"
 }

@@ -78,38 +78,23 @@ module "aks" {
     subnet_id = module.networking.subnet_id
 }
 
-module "ingress" {
-    source = "./modules/ingress"
+module "helm" {
+    source = "./modules/helm"
 
-    cluster_name           = var.cluster_name
-    resource_group_name    = module.resource_group.resource_group_name
+    cluster_name             = var.cluster_name
+    resource_group_name      = module.resource_group.resource_group_name
 
-    client_key             = module.aks.client_key
-    client_certificate     = module.aks.client_certificate
-    cluster_ca_certificate = module.aks.cluster_ca_certificate
-    cluster_username       = module.aks.cluster_username
-    cluster_password       = module.aks.cluster_password
-    kube_config            = module.aks.kube_config
-    host                   = module.aks.host
+    client_key               = module.aks.client_key
+    client_certificate       = module.aks.client_certificate
+    cluster_ca_certificate   = module.aks.cluster_ca_certificate
+    cluster_username         = module.aks.cluster_username
+    cluster_password         = module.aks.cluster_password
+    kube_config              = module.aks.kube_config
+    host                     = module.aks.host
 
-    chart_name             = var.ingres_chart_name
-    chart_version          = var.ingres_chart_version
-}
+    ingress_chart_name       = var.ingres_chart_name
+    ingress_chart_version    = var.ingres_chart_version
 
-module "prometheus" {
-    source = "./modules/prometheus"
-
-    cluster_name           = var.cluster_name
-    resource_group_name    = module.resource_group.resource_group_name
-
-    client_key             = module.aks.client_key
-    client_certificate     = module.aks.client_certificate
-    cluster_ca_certificate = module.aks.cluster_ca_certificate
-    cluster_username       = module.aks.cluster_username
-    cluster_password       = module.aks.cluster_password
-    kube_config            = module.aks.kube_config
-    host                   = module.aks.host
-
-    chart_name             = var.prometheus_chart_name
-    chart_version          = var.prometheus_chart_version
+    prometheus_chart_name    = var.prometheus_chart_name
+    prometheus_chart_version = var.prometheus_chart_version
 }

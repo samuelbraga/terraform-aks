@@ -10,11 +10,27 @@ provider "helm" {
     }
 }
 
+resource "helm_release" "ingress" {
+    name             = "nginx"
+    repository       = "https://kubernetes-charts.storage.googleapis.com"
+    chart            = var.ingress_chart_name
+    version          = var.ingress_chart_version
+    namespace        = "kube-system"
+    lint             = true
+    atomic           = true
+    cleanup_on_fail  = true
+    create_namespace = true
+
+    values = [
+        file("${path.module}/ingress/values.yaml")
+    ]
+}
+
 resource "helm_release" "prometheus" {
     name             = "prometheus"
     repository       = "https://kubernetes-charts.storage.googleapis.com"
-    chart            = var.chart_name
-    version          = var.chart_version
+    chart            = var.prometheus_chart_name
+    version          = var.prometheus_chart_version
     namespace        = "monitoramento"
     lint             = true
     atomic           = true
@@ -23,6 +39,9 @@ resource "helm_release" "prometheus" {
     timeout          = 600
 
     values = [
-        file("${path.module}/values.yaml")
+        file("${path.module}/prometheus/values.yaml")
     ]
+
+    depends_on = [helm_release.ingress]
 }
+
