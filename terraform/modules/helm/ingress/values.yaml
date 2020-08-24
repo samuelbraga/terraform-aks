@@ -1,13 +1,13 @@
-# controller:
-#   metrics:
-#     enabled: true
+controller:
+  metrics:
+    enabled: true
 
-#     service:
-#       annotations:
-#         prometheus.io/scrape: "true"
-#         prometheus.io/port: "10254"
+    service:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "10254"
 
-#     serviceMonitor:
-#       enabled: true
-#       namespace: "monitoramento"
-#       scrapeInterval: 30s
+    serviceMonitor:
+      enabled: true
+      namespace: "monitoramento"
+      scrapeInterval: 30s

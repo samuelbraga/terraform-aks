@@ -24,7 +24,6 @@ grafana:
     - grafana.local.io
     
     path: /
-
    
 prometheus:
   ingress:
@@ -38,9 +37,13 @@ prometheus:
 
   prometheusSpec:
     serviceMonitorSelector:
-      matchLabels:
-        release: prometheus
-        release: nginx
+      matchExpressions:
+      - key: release
+        operator: In
+        values:
+        - prometheus
+        - nginx
+
 
 kubeApiServer:
   serviceMonitor:
